@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember</h2>
+{{items-form onSubmit=(action 'add')}} {{items-filter searchText=query}}
+
+<ul class="list measure center">
+  {{#each itemsFiltered as |item|}}
+    {{items-element thing=item onClick=(action 'archive' item)}}
+  {{/each}}
+</ul>
 
 {{outlet}}
