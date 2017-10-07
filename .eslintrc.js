@@ -15,7 +15,7 @@ module.exports = {
     'no-extra-semi': 2,
     quotes: [2, 'single', 'avoid-escape'],
     // follwing rules only for workshop (in production they should be defnied as errors)
-    'ember/named-functions-in-promises': 'warn',
-    'ember/alias-model-in-controller': 'warn',
+    'ember/named-functions-in-promises': 'off',
+    'ember/alias-model-in-controller': 'off',
   },
 };
