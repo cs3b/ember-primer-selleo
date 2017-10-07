@@ -24,9 +24,5 @@ export default Ember.Controller.extend({
       let newOrder = this.get('nameSort') == 'asc' ? 'desc' : 'asc';
       this.set('nameSort', newOrder);
     },
-    archive(item) {
-      console.log(item);
-      Ember.set(item, 'archive', true);
-    }
   },
 });
