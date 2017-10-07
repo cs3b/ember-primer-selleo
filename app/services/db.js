@@ -1,28 +1,32 @@
 import Ember from 'ember';
 import RSVP from 'rsvp';
 
-const { run: { later }} = Ember;
+const { run: { later } } = Ember;
 const { Promise } = RSVP;
 
-const { computed: {mapBy, uniq}} = Ember;
+const { computed: { mapBy, uniq } } = Ember;
 
 export default Ember.Service.extend({
   all(collection) {
-    return new Promise((resolve) => {
-      later(() => resolve(this[collection]), 750)
-    })
+    return new Promise(resolve => {
+      later(() => resolve(this[collection]), 750);
+    });
   },
   query(collection, key, value) {
-   return this[collection]
-     .filter(el => el[key] == value)
+    return this[collection].filter(el => el[key] == value);
   },
   find(collection, id) {
-    return new Promise((resolve) => {
-      later(() => resolve(this[collection].find(el => el.id == id)), 750)
-    })
+    let element = this[collection].find(el => el.id == id);
+    if (element) {
+      return new Promise(resolve => {
+        later(() => resolve(element), 750);
+      });
+    } else {
+      return Promise.reject({ error: 'not found' });
+    }
   },
   add(collection, element) {
-   this[collection].pushObject(element);
+    this[collection].pushObject(element);
   },
   allCategories: mapBy('items', 'category'),
   categories: uniq('allCategories'),
@@ -30,13 +34,13 @@ export default Ember.Service.extend({
     {
       id: 1,
       title: 'rysa na lusterku',
-      item_id: 4
+      item_id: 4,
     },
-    { 
+    {
       id: 2,
       title: 'przebita opona',
-      item_id: 1
-    }
+      item_id: 1,
+    },
   ],
   items: [
     {
