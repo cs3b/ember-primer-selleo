@@ -1,0 +1,10 @@
+{{#each model as |event|}}
+  <ul>
+    {{#each-in event as |key value|}}
+      <li>
+        <strong>{{key}}</strong>: {{value}}
+      </li>
+    {{/each-in}}
+  </ul>
+{{/each}}
+{{outlet}}

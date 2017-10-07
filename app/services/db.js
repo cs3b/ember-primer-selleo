@@ -6,6 +6,10 @@ export default Ember.Service.extend({
   all(collection) {
    return this[collection]
   },
+  query(collection, key, value) {
+   return this[collection]
+     .filter(el => el[key] == value)
+  },
   find(collection, id) {
    return this[collection].find(el => el.id == id)
   },
@@ -14,6 +18,18 @@ export default Ember.Service.extend({
   },
   allCategories: mapBy('items', 'category'),
   categories: uniq('allCategories'),
+  events: [
+    {
+      id: 1,
+      title: 'rysa na lusterku',
+      item_id: 4
+    },
+    { 
+      id: 2,
+      title: 'przebita opona',
+      item_id: 1
+    }
+  ],
   items: [
     {
       id: 1,
