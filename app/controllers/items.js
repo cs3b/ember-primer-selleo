@@ -3,11 +3,6 @@ import Ember from 'ember';
 const { computed: { sort, uniq, mapBy }, computed } = Ember;
 
 export default Ember.Controller.extend({
-  db: Ember.inject.service(),
-  model: computed(function() {
-    return this.get('db').all('items');
-  }),
-
   nameSort: 'asc',
   itemsSorted: sort('itemsFiltered', 'itemsSort'),
 
