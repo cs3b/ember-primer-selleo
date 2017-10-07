@@ -1,4 +1,9 @@
-<img class="w2 h2 w3-ns h3-ns" alt= {{thing.name}} src= {{thing.imageUrl}}>
+{{#if thing.imageUrl }}
+  <img class="w2 h2 w3-ns h3-ns" alt={{thing.name}} src={{thing.imageUrl}}>
+{{else}}
+  <img class="w2 h2 w3-ns h3-ns" alt={{thing.name}} src="https://placehold.it/50x50.jpg/">
+{{/if}}
+
 <div class="pl3 flex-auto">
   <span class="f6 db black-70">{{thing.name}}</span>
   <span class="f6 db black-70">{{thing.category}}</span>
