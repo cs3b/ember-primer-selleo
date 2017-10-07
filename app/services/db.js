@@ -1,17 +1,25 @@
 import Ember from 'ember';
+import RSVP from 'rsvp';
+
+const { run: { later }} = Ember;
+const { Promise } = RSVP;
 
 const { computed: {mapBy, uniq}} = Ember;
 
 export default Ember.Service.extend({
   all(collection) {
-   return this[collection]
+    return new Promise((resolve) => {
+      later(() => resolve(this[collection]), 2000)
+    })
   },
   query(collection, key, value) {
    return this[collection]
      .filter(el => el[key] == value)
   },
   find(collection, id) {
-   return this[collection].find(el => el.id == id)
+    return new Promise((resolve) => {
+      later(() => resolve(this[collection].find(el => el.id == id)), 1500)
+    })
   },
   add(collection, element) {
    this[collection].pushObject(element);
