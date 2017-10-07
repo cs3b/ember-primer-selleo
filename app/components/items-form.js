@@ -1,15 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  db: Ember.inject.service(),
+  categories: Ember.computed.alias('db.categories'),
   actions: {
     addItem() {
-      let item = {
-        name: this.get('name'),
-        category: this.get('category'),
-        imageUrl: this.get('imageUrl'),
-        since: this.get('since'),
-      };
-      this.get('onSubmit')(item);
+      let item = this.getProperties('name', 'category', 'imageUrl', 'since');
+
+      this.get('db').add('items', item);
       this._resetForm();
     },
   },
