@@ -1,14 +1,14 @@
-{{items-form}} 
-
-{{items-filter onChange=(action (mut query))}}
+{{items-form}} {{items-filter onChange=(action (mut query))}}
 
 <ul class="list measure center">
   <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
 
   {{#each itemsSorted as |item|}}
-    {{items-element thing=item onClick=(action 'archive' item)}}
+    {{#link-to 'items.item' item}}
+      {{items-element thing=item}}
+    {{/link-to}}
   {{else}}
-    Sorry, nothing here.
+      Sorry, nothing here.
   {{/each}}
 </ul>
 
