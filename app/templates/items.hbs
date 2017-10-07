@@ -1,15 +1,18 @@
-{{items-form}} {{items-filter onChange=(action (mut query))}}
+<div class="fl w-50">
+  {{items-form}} {{items-filter onChange=(action (mut query))}}
 
-<ul class="list measure center">
-  <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
+  <ul class="list measure center">
+    <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
 
-  {{#each itemsSorted as |item|}}
-    {{#link-to 'items.item' item}}
-      {{items-element thing=item}}
-    {{/link-to}}
-  {{else}}
-      Sorry, nothing here.
-  {{/each}}
-</ul>
-
-{{outlet}}
+    {{#each itemsSorted as |item|}}
+      {{#link-to 'items.item' item}}
+        {{items-element thing=item}}
+      {{/link-to}}
+      {{else}}
+        Sorry, nothing here.
+    {{/each}}
+  </ul>
+</div>
+<div class="fl w-50">
+  {{outlet}}
+</div>
