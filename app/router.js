@@ -13,6 +13,7 @@ Router.map(function() {
     });
     this.route('new');
   });
+  this.route('not-found', { path: '/*whatever'})
 });
 
 export default Router;
