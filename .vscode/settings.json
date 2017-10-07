@@ -1,12 +1,12 @@
 {
   "eslint.autoFixOnSave": false,
   "editor.tabSize": 2,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "files.autoSave": "onWindowChange",
   "vsicons.presets.tsOfficial": true,
   "vsicons.presets.hideFolders": true,
   "git.enableSmartCommit": true,
-  "workbench.colorTheme": "Ember Frost",
+  "workbench.colorTheme": "Default Light+",
   "vim.disableAnnoyingNeovimMessage": true,
   "search.exclude": {
     "**/node_modules": true,

@@ -1,4 +1,6 @@
-{{items-form onSubmit=(action 'add')}} {{items-filter searchText=query}}
+{{items-form onSubmit=(action 'add')}} 
+
+{{items-filter onChange=(action (mut query))}}
 
 <ul class="list measure center">
   {{#each itemsFiltered as |item|}}
