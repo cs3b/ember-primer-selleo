@@ -5,6 +5,8 @@
 <ul class="list measure center">
   {{#each itemsFiltered as |item|}}
     {{items-element thing=item onClick=(action 'archive' item)}}
+  {{else}}
+    Sorry, nothing here.
   {{/each}}
 </ul>
 

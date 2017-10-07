@@ -6,7 +6,7 @@
   "vsicons.presets.tsOfficial": true,
   "vsicons.presets.hideFolders": true,
   "git.enableSmartCommit": true,
-  "workbench.colorTheme": "Ember Frost",
+  "workbench.colorTheme": "Default Light+",
   "vim.disableAnnoyingNeovimMessage": true,
   "search.exclude": {
     "**/node_modules": true,
