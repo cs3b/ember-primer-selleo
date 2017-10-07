@@ -18,7 +18,6 @@ export default Ember.Controller.extend({
     return items.filter(item => regexp.test(item.name));
   }),
 
-
   actions: {
     toggleSort() {
       let newOrder = this.get('nameSort') == 'asc' ? 'desc' : 'asc';
