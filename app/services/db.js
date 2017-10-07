@@ -9,7 +9,7 @@ const { computed: {mapBy, uniq}} = Ember;
 export default Ember.Service.extend({
   all(collection) {
     return new Promise((resolve) => {
-      later(() => resolve(this[collection]), 2000)
+      later(() => resolve(this[collection]), 750)
     })
   },
   query(collection, key, value) {
@@ -18,7 +18,7 @@ export default Ember.Service.extend({
   },
   find(collection, id) {
     return new Promise((resolve) => {
-      later(() => resolve(this[collection].find(el => el.id == id)), 1500)
+      later(() => resolve(this[collection].find(el => el.id == id)), 750)
     })
   },
   add(collection, element) {
