@@ -9,8 +9,7 @@ export default Route.extend({
   },
   model(params) {
     if (params.query) {
-      let pattern = new RegExp(params.query, 'i');
-      return this.store.query('item', {filter: {name: pattern}});
+      return this.store.query('item', {filter: {search: params.query}});
     } else {
       return this.store.findAll('item');
     }
