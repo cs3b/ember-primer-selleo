@@ -5,9 +5,7 @@
     <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
 
     {{#each itemsSorted as |item|}}
-      {{#link-to 'items.item' item.id}}
-        {{items-element thing=item}}
-      {{/link-to}}
+      {{items-element thing=item}}
     {{else}}
       Sorry, nothing here.
     {{/each}}
