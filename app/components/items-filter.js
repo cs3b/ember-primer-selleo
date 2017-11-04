@@ -1,10 +1,11 @@
 import { debounce } from '@ember/runloop';
 import Component from '@ember/component';
+import { get, set } from '@ember/object';
 
 export default Component.extend({
   didReceiveAttrs() {
    this._super(...arguments);
-   this.set('searchTerm', this.get('query'));
+   set(this, 'searchTerm', get(this, 'query'));
   },
   actions: {
     termChange() {
@@ -12,6 +13,6 @@ export default Component.extend({
     }
   },
   updateQuery() {
-    this.get('onChange')(this.get('searchTerm'));
+    get(this, 'onChange')(get(this, 'searchTerm'));
   },   
 });

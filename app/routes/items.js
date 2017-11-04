@@ -1,5 +1,6 @@
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
+import { get } from '@ember/object';
 
 export default Route.extend({
   db: service(),
@@ -9,7 +10,7 @@ export default Route.extend({
     }
   },
   model() {
-    return this.get('db').all('items');
+    return get(this, 'db').all('items');
   },
   redirect(model, transition) {
     if (model[0] && transition.targetName == 'items.index') {

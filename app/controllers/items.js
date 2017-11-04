@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
-import { mapBy, uniq, sort } from '@ember/object/computed';
+import { sort } from '@ember/object/computed';
 import { computed } from '@ember/object';
+import { get, set } from '@ember/object';
 
 export default Controller.extend({
   queryParams: ['query'],
@@ -9,12 +10,12 @@ export default Controller.extend({
   itemsSorted: sort('itemsFiltered', 'itemsSort'),
 
   itemsSort: computed('nameSort', function() {
-    return [`name:${this.get('nameSort')}`]
+    return [`name:${get(this, 'nameSort')}`]
   }),
 
   itemsFiltered: computed('query', 'model.[]', function() {
-    let query = this.get('query');
-    let items = this.get('model');
+    let query = get(this, 'query');
+    let items = get(this, 'model');
     let regexp = new RegExp(query, 'i');
 
     return items.filter(item => regexp.test(item.name));
@@ -22,8 +23,8 @@ export default Controller.extend({
 
   actions: {
     toggleSort() {
-      let newOrder = this.get('nameSort') == 'asc' ? 'desc' : 'asc';
-      this.set('nameSort', newOrder);
+      let newOrder = get(this, 'nameSort') == 'asc' ? 'desc' : 'asc';
+      set(this, 'nameSort', newOrder);
     },
   },
 });
