@@ -7,18 +7,10 @@ export default Controller.extend({
   queryParams: ['query'],
   query: '',
   nameSort: 'asc',
-  itemsSorted: sort('itemsFiltered', 'itemsSort'),
+  itemsSorted: sort('model', 'itemsSort'),
 
   itemsSort: computed('nameSort', function() {
     return [`name:${get(this, 'nameSort')}`]
-  }),
-
-  itemsFiltered: computed('query', 'model.[]', function() {
-    let query = get(this, 'query');
-    let items = get(this, 'model');
-    let regexp = new RegExp(query, 'i');
-
-    return items.filter(item => regexp.test(item.name));
   }),
 
   actions: {
