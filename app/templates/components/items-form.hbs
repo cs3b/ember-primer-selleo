@@ -11,9 +11,9 @@
 
   <label class="f6 b db mb2">Since</label> {{input value=since class="input-reset ba b--black-20 pa2 mb2 db" type="date"}}
 
-  <div class="flex flex-row-reverse">
-    <div role="button" {{action 'addItem'}} class="near-white bg-animate mw-20 bg-near-black hover-bg-gray inline-flex items-center ma2 tc br2 pa2">
-      <span class="f6 pl2 pr2">Add Item</span>
-    </div>
-  </div>
+  {{#x-form/buttons}}
+    {{x-form/button "Add Item" click=(action 'addItem')}} 
+    {{x-form/button "Cancel" click=(action 'clearForm')}} 
+  {{/x-form/buttons}}
+
 </div>

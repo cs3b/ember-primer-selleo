@@ -13,6 +13,9 @@ export default Component.extend({
       get(this, 'db').add('items', item);
       this._resetForm();
     },
+    clearForm() {
+      this._resetForm();
+    }
   },
   _resetForm() {
    setProperties(this, {
