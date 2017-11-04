@@ -1,5 +1,5 @@
 <div class="fl w-50">
-  {{items-filter onChange=(action (mut query))}}
+  {{items-filter query=query onChange=(action (mut query))}}
 
   <ul class="list measure center">
     <button {{action 'toggleSort'}}>Sort By Name: {{nameSort}}</button>
