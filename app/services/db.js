@@ -7,9 +7,7 @@ const { Promise } = RSVP;
 
 export default Service.extend({
   all(collection) {
-    return new Promise(resolve => {
-      later(() => resolve(this[collection]), 750);
-    });
+    return this[collection]
   },
   query(collection, key, value) {
     return this[collection].filter(el => el[key] == value);

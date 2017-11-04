@@ -4,13 +4,13 @@ import Component from '@ember/component';
 import { get, getProperties, setProperties } from '@ember/object';
 
 export default Component.extend({
-  db: service(),
-  categories: alias('db.categories'),
+  store: service(),
+  // categories: alias('db.categories'),
   actions: {
     addItem() {
       let item = getProperties(this, 'name', 'category', 'imageUrl', 'since');
 
-      get(this, 'db').add('items', item);
+      get(this, 'store').createRecord('item', item);
       this._resetForm();
     },
     clearForm() {

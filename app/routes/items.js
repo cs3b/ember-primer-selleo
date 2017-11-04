@@ -1,6 +1,5 @@
-import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
-import { get } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
   db: service(),
@@ -9,8 +8,12 @@ export default Route.extend({
       replace: true
     }
   },
+  beforeModel() {
+    this.get('db').all('items').forEach( item => this.store.createRecord('item', item));
+    this.get('db').all('events').forEach( event => this.store.createRecord('event', event));
+  },
   model() {
-    return get(this, 'db').all('items');
+    return this.store.peekAll('item');
   },
   redirect(model, transition) {
     if (model[0] && transition.targetName == 'items.index') {
