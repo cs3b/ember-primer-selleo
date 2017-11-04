@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   // router: Ember.inject.service(),
   tagName: 'li',
   classNames: ['flex items-center lh-copy pa3 ph0-l bb b--black-10'],

@@ -1,12 +1,11 @@
-import Ember from 'ember';
+import Service from '@ember/service';
+import { uniq, mapBy } from '@ember/object/computed';
+import { later } from '@ember/runloop';
 import RSVP from 'rsvp';
 
-const { run: { later } } = Ember;
 const { Promise } = RSVP;
 
-const { computed: { mapBy, uniq } } = Ember;
-
-export default Ember.Service.extend({
+export default Service.extend({
   all(collection) {
     return new Promise(resolve => {
       later(() => resolve(this[collection]), 750);

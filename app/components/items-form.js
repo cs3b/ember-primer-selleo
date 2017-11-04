@@ -1,8 +1,10 @@
-import Ember from 'ember';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  db: Ember.inject.service(),
-  categories: Ember.computed.alias('db.categories'),
+export default Component.extend({
+  db: service(),
+  categories: alias('db.categories'),
   actions: {
     addItem() {
       let item = this.getProperties('name', 'category', 'imageUrl', 'since');

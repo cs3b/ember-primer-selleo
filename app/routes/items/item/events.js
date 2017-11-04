@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  db: Ember.inject.service(),
+export default Route.extend({
+  db: service(),
   model() {
     let { item_id } = this.paramsFor('items.item');
     return this.get('db')

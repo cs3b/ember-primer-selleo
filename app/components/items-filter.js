@@ -1,13 +1,14 @@
-import Ember from 'ember';
+import { debounce } from '@ember/runloop';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   didReceiveAttrs() {
    this._super(...arguments);
    this.set('searchTerm', this.get('query'));
   },
   actions: {
     termChange() {
-      Ember.run.debounce(this, this.updateQuery, 500);
+      debounce(this, this.updateQuery, 500);
     }
   },
   updateQuery() {

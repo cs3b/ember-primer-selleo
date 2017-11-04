@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import moment from 'moment'; 
 
 export function timeAgo([date]) {
   return moment(date).fromNow();
 }
 
-export default Ember.Helper.helper(timeAgo);
+export default helper(timeAgo);
