@@ -1,3 +1,6 @@
+/*global Pikaday*/
+/*eslint no-undef: "error"*/
+
 import Date from 'track-items/components/x-form/date';
 import layout from 'track-items/templates/components/x-form/input';
 import $ from 'jquery';
