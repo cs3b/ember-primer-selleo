@@ -9,7 +9,7 @@
 
   {{x-form/input picture label="Picture"}}
 
-  <label class="f6 b db mb2">Since</label> {{input value=since class="input-reset ba b--black-20 pa2 mb2 db" type="date"}}
+  {{x-form/date since label="Since"}}
 
   {{#x-form/buttons}}
     {{x-form/button "Add Item" click=(action 'addItem')}} 
