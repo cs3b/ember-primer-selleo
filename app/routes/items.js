@@ -7,7 +7,7 @@ export default Route.extend({
     }
   },
   model() {
-    return this.store.peekAll('item');
+    return this.store.findAll('item');
   },
   redirect(model, transition) {
     if (model[0] && transition.targetName == 'items.index') {

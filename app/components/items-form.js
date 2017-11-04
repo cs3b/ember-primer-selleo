@@ -10,7 +10,7 @@ export default Component.extend({
     addItem() {
       let item = getProperties(this, 'name', 'category', 'imageUrl', 'since');
 
-      get(this, 'store').createRecord('item', item);
+      get(this, 'store').createRecord('item', item).save();
       this._resetForm();
     },
     clearForm() {
