@@ -1,19 +1,18 @@
 <div class="list measure center ba pa2">
   <h3>New Item</h3>
 
-  {{x-form/input name label="Name"}}
+  {{#x-form as |f|}}
+    {{f.input name label="Name"}}
+    {{#f.input category label="Category"}}
+      <span>{{categories}}</span>
+    {{/f.input}}
+    {{f.input picture label="Picture"}}
+    {{f.date since label="Since"}}
 
-  {{#x-form/input category label="Category"}}
-    <span>{{categories}}</span>
-  {{/x-form/input}}
-
-  {{x-form/input picture label="Picture"}}
-
-  {{x-form/date since label="Since"}}
-
-  {{#x-form/buttons}}
-    {{x-form/button "Add Item" click=(action 'addItem')}} 
-    {{x-form/button "Cancel" click=(action 'clearForm')}} 
-  {{/x-form/buttons}}
+    {{#f.buttons as |bs|}}
+      {{bs.button "Add Item" click=(action 'addItem')}} 
+      {{bs.button "Cancel" click=(action 'clearForm')}} 
+    {{/f.buttons}}
+  {{/x-form}}
 
 </div>
