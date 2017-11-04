@@ -9,8 +9,8 @@ export default Route.extend({
     }
   },
   beforeModel() {
-    this.get('db').all('items').forEach( item => this.store.createRecord('item', item));
-    this.get('db').all('events').forEach( event => this.store.createRecord('event', event));
+    this.get('db').all('items').forEach( item => this.store.createRecord('item', item).save());
+    this.get('db').all('events').forEach( event => this.store.createRecord('event', event).save());
   },
   model() {
     return this.store.peekAll('item');
