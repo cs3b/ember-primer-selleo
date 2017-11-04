@@ -4152,6 +4152,10 @@ moment-timezone@^0.5.13:
   dependencies:
     moment ">= 2.9.0"
 
+moment@2.x:
+  version "2.19.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.1.tgz#56da1a2d1cbf01d38b7e1afc31c10bcfa1929167"
+
 "moment@>= 2.9.0", moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
@@ -4484,6 +4488,12 @@ performance-now@^0.2.0:
 pify@^2.0.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+
+pikaday@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/pikaday/-/pikaday-1.6.1.tgz#b91bcb9b8539cedd8d6d08e4e7465e12095671b0"
+  optionalDependencies:
+    moment "2.x"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
